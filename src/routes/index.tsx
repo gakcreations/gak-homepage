@@ -53,8 +53,39 @@ const artworks = [
 function Index() {
   return (
     <main className="min-h-screen bg-background font-body text-foreground">
-      {/* Hero */}
-      <section className="relative flex min-h-[85vh] items-end overflow-hidden">
+      {/* Minimal header */}
+      <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-sm">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-12">
+          <a href="/" className="font-heading text-sm font-medium tracking-[0.2em] uppercase">
+            GAK Creations
+          </a>
+          <nav className="flex items-center gap-8">
+            <a
+              href="#works"
+              className="hidden font-heading text-xs tracking-[0.15em] uppercase text-muted-foreground transition-colors hover:text-foreground sm:inline-block"
+            >
+              Works
+            </a>
+            <a
+              href="#about"
+              className="hidden font-heading text-xs tracking-[0.15em] uppercase text-muted-foreground transition-colors hover:text-foreground sm:inline-block"
+            >
+              About
+            </a>
+            <a
+              href={PRINTIFY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-heading text-xs tracking-[0.15em] uppercase text-foreground transition-colors hover:text-primary"
+            >
+              Printify
+            </a>
+          </nav>
+        </div>
+      </header>
+
+      {/* Hero — full-bleed gallery statement */}
+      <section className="relative flex min-h-screen items-center justify-center overflow-hidden pt-20">
         <div className="absolute inset-0">
           <img
             src={heroImage}
@@ -64,158 +95,202 @@ function Index() {
             className="h-full w-full object-cover"
             fetchPriority="high"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/10 to-background/90" />
+          <div className="absolute inset-0 bg-background/60" />
         </div>
 
-        <div className="relative z-10 w-full px-6 pb-20 pt-32 md:px-12 lg:px-20">
-          <div className="max-w-3xl">
-            <p className="font-heading text-xs uppercase tracking-[0.3em] text-foreground/80">
-              Artist-led studio
-            </p>
-            <h1 className="mt-4 font-heading text-5xl font-light leading-[1.05] tracking-tight md:text-7xl lg:text-8xl">
-              GAK
-              <br />
-              Creations
-            </h1>
-            <p className="mt-6 max-w-md text-base leading-relaxed text-foreground/80 md:text-lg">
-              Fine art prints shaped by architecture, travel, and the quiet poetry of coastal life.
-            </p>
-            <div className="mt-8">
-              <a
-                href={PRINTIFY_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-md bg-primary px-7 py-3.5 font-heading text-sm font-medium tracking-wide text-primary-foreground transition-all hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-              >
-                Visit the Printify store
-              </a>
-            </div>
-          </div>
+        <div className="relative z-10 mx-auto max-w-5xl px-6 text-center md:px-12">
+          <p className="font-heading text-xs uppercase tracking-[0.35em] text-muted-foreground">
+            Artist-led studio
+          </p>
+          <h1 className="mt-6 font-heading text-6xl font-light leading-[0.95] tracking-tight md:text-8xl lg:text-9xl">
+            GAK
+            <br />
+            Creations
+          </h1>
+          <div className="mx-auto mt-8 h-px w-24 bg-primary/60" />
+          <p className="mx-auto mt-8 max-w-lg text-base font-light leading-relaxed text-foreground/80 md:text-lg">
+            Fine art prints shaped by architecture, travel, and the quiet poetry of coastal life.
+          </p>
         </div>
-      </section>
 
-      {/* Artist statement */}
-      <section className="px-6 py-24 md:px-12 lg:px-20">
-        <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-12 md:gap-16">
-          <div className="md:col-span-4">
-            <h2 className="font-heading text-sm uppercase tracking-[0.25em] text-muted-foreground">
-              Philosophy
-            </h2>
-          </div>
-          <div className="md:col-span-8">
-            <p className="font-heading text-2xl font-light leading-relaxed md:text-3xl lg:text-4xl">
-              My work blends sketches, mixed-media, photography, and abstract impressions into
-              prints that carry stories of France, Spain, the Bahamas, and the Canary Islands.
-            </p>
-            <p className="mt-8 text-base leading-relaxed text-muted-foreground md:text-lg">
-              Each piece is a threshold — a moment where light, structure, and landscape meet. I draw
-              from the geometry of old towns, the rhythm of tides, and the sensory memory of place.
-              These are not souvenirs; they are quiet invitations to slow down and look closer.
-            </p>
-          </div>
+        <div className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2">
+          <a
+            href="#works"
+            className="flex flex-col items-center gap-2 font-heading text-[10px] uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-foreground"
+          >
+            <span>Explore</span>
+            <span className="block h-8 w-px bg-current" />
+          </a>
         </div>
       </section>
 
-      {/* Collections preview */}
-      <section className="bg-secondary px-6 py-24 md:px-12 lg:px-20">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-16 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
+      {/* About / statement */}
+      <section id="about" className="px-6 py-32 md:px-12 lg:px-20">
+        <div className="mx-auto max-w-4xl text-center">
+          <p className="font-heading text-xs uppercase tracking-[0.3em] text-muted-foreground">
+            Philosophy
+          </p>
+          <p className="mt-8 font-heading text-2xl font-light leading-relaxed md:text-4xl lg:text-5xl">
+            My work blends sketches, mixed-media, photography, and abstract impressions into prints
+            that carry stories of France, Spain, the Bahamas, and the Canary Islands.
+          </p>
+          <p className="mx-auto mt-10 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            Each piece is a threshold — a moment where light, structure, and landscape meet. I draw from
+            the geometry of old towns, the rhythm of tides, and the sensory memory of place.
+          </p>
+        </div>
+      </section>
+
+      {/* Gallery wall */}
+      <section id="works" className="px-6 pb-32 md:px-12 lg:px-20">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-16 flex items-end justify-between border-b border-border pb-6">
             <div>
-              <h2 className="font-heading text-sm uppercase tracking-[0.25em] text-muted-foreground">
+              <p className="font-heading text-xs uppercase tracking-[0.3em] text-muted-foreground">
                 Selected works
-              </h2>
-              <p className="mt-3 font-heading text-3xl font-light tracking-tight md:text-4xl">
-                Collections & prints
               </p>
+              <h2 className="mt-3 font-heading text-3xl font-light tracking-tight md:text-4xl">
+                Gallery
+              </h2>
             </div>
             <a
               href={PRINTIFY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-heading text-sm uppercase tracking-widest text-primary underline-offset-4 transition-colors hover:text-primary/80 hover:underline"
+              className="font-heading text-xs uppercase tracking-[0.15em] text-muted-foreground transition-colors hover:text-foreground"
             >
-              View all prints
+              View all prints →
             </a>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {artworks.map((artwork) => (
-              <article
-                key={artwork.title}
-                className="group overflow-hidden rounded-lg bg-card shadow-sm transition-shadow hover:shadow-md"
-              >
-                <div className="aspect-[4/5] overflow-hidden">
-                  <img
-                    src={artwork.image}
-                    alt={`${artwork.title} — ${artwork.medium}`}
-                    width={800}
-                    height={1008}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                  />
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-8">
+            {/* First piece — large */}
+            <article className="group md:col-span-7">
+              <div className="aspect-[4/5] overflow-hidden bg-muted">
+                <img
+                  src={artworks[0].image}
+                  alt={`${artworks[0].title} — ${artworks[0].medium}`}
+                  width={800}
+                  height={1008}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                />
+              </div>
+              <div className="mt-4 flex items-start justify-between">
+                <div>
+                  <h3 className="font-heading text-lg font-medium tracking-tight">{artworks[0].title}</h3>
+                  <p className="mt-1 text-sm text-muted-foreground">{artworks[0].medium}</p>
                 </div>
-                <div className="p-6">
-                  <p className="font-heading text-xs uppercase tracking-widest text-muted-foreground">
-                    {artwork.location}
-                  </p>
-                  <h3 className="mt-2 font-heading text-xl font-medium tracking-tight">
-                    {artwork.title}
-                  </h3>
-                  <p className="mt-1 text-sm text-muted-foreground">{artwork.medium}</p>
+                <p className="font-heading text-xs uppercase tracking-widest text-muted-foreground">
+                  {artworks[0].location}
+                </p>
+              </div>
+            </article>
+
+            {/* Second piece — tall, offset */}
+            <article className="group md:col-span-5 md:mt-24">
+              <div className="aspect-[3/4] overflow-hidden bg-muted">
+                <img
+                  src={artworks[1].image}
+                  alt={`${artworks[1].title} — ${artworks[1].medium}`}
+                  width={800}
+                  height={1008}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                />
+              </div>
+              <div className="mt-4 flex items-start justify-between">
+                <div>
+                  <h3 className="font-heading text-lg font-medium tracking-tight">{artworks[1].title}</h3>
+                  <p className="mt-1 text-sm text-muted-foreground">{artworks[1].medium}</p>
                 </div>
-              </article>
-            ))}
+                <p className="font-heading text-xs uppercase tracking-widest text-muted-foreground">
+                  {artworks[1].location}
+                </p>
+              </div>
+            </article>
+
+            {/* Third piece — wide, full width */}
+            <article className="group md:col-span-8 md:col-start-3">
+              <div className="aspect-[16/10] overflow-hidden bg-muted">
+                <img
+                  src={artworks[2].image}
+                  alt={`${artworks[2].title} — ${artworks[2].medium}`}
+                  width={800}
+                  height={1008}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                />
+              </div>
+              <div className="mt-4 flex items-start justify-between">
+                <div>
+                  <h3 className="font-heading text-lg font-medium tracking-tight">{artworks[2].title}</h3>
+                  <p className="mt-1 text-sm text-muted-foreground">{artworks[2].medium}</p>
+                </div>
+                <p className="font-heading text-xs uppercase tracking-widest text-muted-foreground">
+                  {artworks[2].location}
+                </p>
+              </div>
+            </article>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="px-6 py-28 text-center md:px-12 lg:px-20">
-        <div className="mx-auto max-w-2xl">
-          <h2 className="font-heading text-3xl font-light tracking-tight md:text-4xl lg:text-5xl">
+      {/* Full-bleed CTA */}
+      <section className="relative flex min-h-[70vh] items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src={heroImage}
+            alt="Coastal light and shoreline texture"
+            width={1920}
+            height={1088}
+            loading="lazy"
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-background/75" />
+        </div>
+        <div className="relative z-10 mx-auto max-w-3xl px-6 text-center md:px-12">
+          <h2 className="font-heading text-4xl font-light tracking-tight md:text-6xl lg:text-7xl">
             Bring the coast home
           </h2>
-          <p className="mt-5 text-lg text-muted-foreground">
-            Archival-quality prints, shipped through Printify. Each order is made on demand and sent
-            directly to your door.
+          <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-foreground/80 md:text-lg">
+            Archival-quality prints, made on demand and shipped directly to your door through Printify.
           </p>
-          <div className="mt-10">
-            <a
-              href={PRINTIFY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-md bg-primary px-8 py-4 font-heading text-sm font-medium tracking-wide text-primary-foreground transition-all hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-            >
-              Shop prints on Printify
-            </a>
-          </div>
+          <a
+            href={PRINTIFY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-10 inline-flex items-center justify-center border border-foreground bg-transparent px-10 py-4 font-heading text-xs uppercase tracking-[0.2em] text-foreground transition-all hover:bg-foreground hover:text-background"
+          >
+            Shop prints on Printify
+          </a>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border px-6 py-12 md:px-12 lg:px-20">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 md:flex-row">
-          <p className="font-heading text-sm font-medium tracking-wide">GAK Creations</p>
-          <div className="flex items-center gap-6">
+      <footer className="border-t border-border px-6 py-16 md:px-12">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-8 md:flex-row">
+          <p className="font-heading text-sm font-medium tracking-[0.2em] uppercase">GAK Creations</p>
+          <div className="flex items-center gap-10">
             <a
               href={PRINTIFY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="font-heading text-xs uppercase tracking-[0.15em] text-muted-foreground transition-colors hover:text-foreground"
             >
-              Printify Store
+              Printify
             </a>
             <a
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="font-heading text-xs uppercase tracking-[0.15em] text-muted-foreground transition-colors hover:text-foreground"
             >
               Instagram
             </a>
             <a
               href="mailto:hello@gakcreations.com"
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="font-heading text-xs uppercase tracking-[0.15em] text-muted-foreground transition-colors hover:text-foreground"
             >
               Contact
             </a>
