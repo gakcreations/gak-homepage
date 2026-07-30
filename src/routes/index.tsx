@@ -37,14 +37,20 @@ const collections = [
   {
     id: "france",
     country: "France",
-    title: "Côte d'Azur",
-    statement: "Mediterranean light, limestone balustrades, and the quiet geometry of coastal villages.",
+    title: "Stone & Light",
+    statement: "Romanesque geometry, measured lines, and the music that lives inside old French architecture.",
     prints: "France collection",
     works: [
       {
-        title: "Côte d'Azur",
-        medium: "Ink & watercolor sketch",
-        image: franceArtwork,
+        title: "Abbaye aux Dames, Saintes",
+        medium: "Ink drawing & watercolour wash",
+        image: abbayeArt.url,
+        aspect: "aspect-[4/5]",
+      },
+      {
+        title: "Dancing Jazz in the Pantheon",
+        medium: "Chalk line drawing & collage",
+        image: pantheonArt.url,
         aspect: "aspect-[4/5]",
       },
     ],
@@ -52,14 +58,20 @@ const collections = [
   {
     id: "spain",
     country: "Spain",
-    title: "Luz de Andalucía",
-    statement: "White-washed walls, terracotta roofs, and the warm hush of southern Spain at midday.",
+    title: "Arches & Curves",
+    statement: "From Visigothic arches to Bilbao's titanium waves — Spain drawn between memory and invention.",
     prints: "Spain collection",
     works: [
       {
-        title: "Luz de Andalucía",
-        medium: "Mixed-media collage",
-        image: spainArtwork,
+        title: "San Juan Bautista de Baños",
+        medium: "Pen sketch & mixed-media collage",
+        image: banosArt.url,
+        aspect: "aspect-[4/5]",
+      },
+      {
+        title: "Guggenheim Museum, Bilbao",
+        medium: "Graphite, wash & collage",
+        image: guggenheimArt.url,
         aspect: "aspect-[4/5]",
       },
     ],
@@ -67,14 +79,20 @@ const collections = [
   {
     id: "bahamas",
     country: "The Bahamas",
-    title: "Bahamas Horizon",
+    title: "Coastal Narratives",
     statement: "Horizons where salt air dissolves the edge between sky, sea, and sand.",
     prints: "Bahamas collection",
     works: [
       {
-        title: "Bahamas Horizon",
-        medium: "Mixed-media seascape",
-        image: bahamasArtwork,
+        title: "Coastal Narratives",
+        medium: "Etching & hand-tinted wash",
+        image: coastalArt.url,
+        aspect: "aspect-[4/5]",
+      },
+      {
+        title: "The Boat That Dreams of Sea",
+        medium: "Watercolour & mixed-media",
+        image: boatArt.url,
         aspect: "aspect-[4/5]",
       },
     ],
@@ -82,19 +100,20 @@ const collections = [
   {
     id: "canary-islands",
     country: "Canary Islands",
-    title: "Isla Fuego",
-    statement: "Volcanic coastlines, black sand, and the raw rhythm of the Atlantic.",
+    title: "Volcanic Quiet",
+    statement: "Volcanic ridges, weathered stone, and a single white house holding the silence.",
     prints: "Canary Islands collection",
     works: [
       {
-        title: "Isla Fuego",
-        medium: "Layered paper & acrylic",
-        image: canaryArtwork,
+        title: "Volcanic Landscape of Fuerteventura",
+        medium: "Coloured pencil & watercolour",
+        image: volcanicArt.url,
         aspect: "aspect-[4/5]",
       },
     ],
   },
 ];
+
 
 function Index() {
   return (
