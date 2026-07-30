@@ -1,10 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import heroImage from "@/assets/hero.jpg";
-import franceArtwork from "@/assets/artwork-france.jpg";
-import spainArtwork from "@/assets/artwork-spain.jpg";
-import bahamasArtwork from "@/assets/artwork-bahamas.jpg";
-import canaryArtwork from "@/assets/artwork-canary.jpg";
+import abbayeArt from "@/assets/Abbaye_Aux_Dames_Saintes_France.jpg.asset.json";
+import pantheonArt from "@/assets/Dancing_Jazz_In_The_Pantheon.jpg.asset.json";
+import banosArt from "@/assets/Chruch_of_San_Juan_Bautista_de_Banos_Spain.jpg.asset.json";
+import guggenheimArt from "@/assets/Guggenheim_Museum_Bilba_Spain.jpg.asset.json";
+import coastalArt from "@/assets/Coastal_Narratives.jpg.asset.json";
+import boatArt from "@/assets/The_Boat_That_Dreams_Of_Sea.jpg.asset.json";
+import volcanicArt from "@/assets/Volcanic_Landscape_of_Fuerteventura.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
