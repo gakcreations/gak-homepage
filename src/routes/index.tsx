@@ -8,6 +8,8 @@ import guggenheimArt from "@/assets/Guggenheim_Museum_Bilba_Spain.jpg.asset.json
 import coastalArt from "@/assets/Coastal_Narratives.jpg.asset.json";
 import boatArt from "@/assets/The_Boat_That_Dreams_Of_Sea.jpg.asset.json";
 import volcanicArt from "@/assets/Volcanic_Landscape_of_Fuerteventura.jpg.asset.json";
+import sketchbookAsset from "@/assets/sketchbook.jpg.asset.json";
+import logoAsset from "@/assets/gak-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -300,36 +302,70 @@ function Index() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border px-6 py-16 md:px-12">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-8 md:flex-row">
-          <p className="font-heading text-sm font-light tracking-[0.2em] uppercase">GAK Creations</p>
-          <div className="flex items-center gap-10">
-            <a
-              href={PRINTIFY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-heading text-xs uppercase tracking-[0.15em] text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Printify
-            </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-heading text-xs uppercase tracking-[0.15em] text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Instagram
-            </a>
-            <a
-              href="mailto:hello@gakcreations.com"
-              className="font-heading text-xs uppercase tracking-[0.15em] text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Contact
-            </a>
+      <footer className="border-t border-border">
+        <div className="mx-auto grid max-w-7xl gap-16 px-6 py-24 md:grid-cols-2 md:items-center md:px-12">
+          <figure className="order-2 md:order-1">
+            <div className="overflow-hidden bg-muted">
+              <img
+                src={sketchbookAsset.url}
+                alt="Artist's sketchbook with ink drawings, fountain pens, and ink pots on a linen surface"
+                width={1920}
+                height={1200}
+                loading="lazy"
+                className="h-full w-full object-cover"
+              />
+            </div>
+            <figcaption className="mt-5 text-sm text-muted-foreground">
+              From the studio — Long Island, Bahamas · Barcelona, 2021
+            </figcaption>
+          </figure>
+
+          <div className="order-1 flex flex-col items-start gap-8 md:order-2 md:pl-12">
+            <img
+              src={logoAsset.url}
+              alt="GAK Creations logo"
+              width={280}
+              height={155}
+              loading="lazy"
+              className="w-40 md:w-48"
+            />
+            <p className="max-w-sm text-base leading-relaxed text-muted-foreground">
+              Every print begins here — in ink, paper, and the quiet notation of a place.
+            </p>
+            <div className="flex flex-wrap items-center gap-8">
+              <a
+                href={PRINTIFY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-heading text-xs uppercase tracking-[0.15em] text-muted-foreground transition-colors hover:text-foreground"
+              >
+                Printify
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-heading text-xs uppercase tracking-[0.15em] text-muted-foreground transition-colors hover:text-foreground"
+              >
+                Instagram
+              </a>
+              <a
+                href="mailto:hello@gakcreations.com"
+                className="font-heading text-xs uppercase tracking-[0.15em] text-muted-foreground transition-colors hover:text-foreground"
+              >
+                Contact
+              </a>
+            </div>
           </div>
-          <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} GAK Creations</p>
+        </div>
+
+        <div className="border-t border-border/60 px-6 py-8 md:px-12">
+          <p className="mx-auto max-w-7xl text-xs text-muted-foreground">
+            © {new Date().getFullYear()} GAK Creations
+          </p>
         </div>
       </footer>
+
     </main>
   );
 }
