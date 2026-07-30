@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import heroImage from "@/assets/hero.jpg";
 import franceArtwork from "@/assets/artwork-france.jpg";
+import spainArtwork from "@/assets/artwork-spain.jpg";
 import bahamasArtwork from "@/assets/artwork-bahamas.jpg";
 import canaryArtwork from "@/assets/artwork-canary.jpg";
 
@@ -29,30 +30,66 @@ export const Route = createFileRoute("/")({
 
 const PRINTIFY_URL = "https://gakcreations.printify.me/";
 
-const artworks = [
+const collections = [
   {
+    id: "france",
+    country: "France",
     title: "Côte d'Azur",
-    location: "France",
-    medium: "Ink & watercolor sketch",
-    image: franceArtwork,
-    aspect: "aspect-[16/10]",
-    width: "w-full",
+    statement: "Mediterranean light, limestone balustrades, and the quiet geometry of coastal villages.",
+    prints: "France collection",
+    works: [
+      {
+        title: "Côte d'Azur",
+        medium: "Ink & watercolor sketch",
+        image: franceArtwork,
+        aspect: "aspect-[4/5]",
+      },
+    ],
   },
   {
+    id: "spain",
+    country: "Spain",
+    title: "Luz de Andalucía",
+    statement: "White-washed walls, terracotta roofs, and the warm hush of southern Spain at midday.",
+    prints: "Spain collection",
+    works: [
+      {
+        title: "Luz de Andalucía",
+        medium: "Mixed-media collage",
+        image: spainArtwork,
+        aspect: "aspect-[4/5]",
+      },
+    ],
+  },
+  {
+    id: "bahamas",
+    country: "The Bahamas",
     title: "Bahamas Horizon",
-    location: "The Bahamas",
-    medium: "Mixed-media seascape",
-    image: bahamasArtwork,
-    aspect: "aspect-[4/5]",
-    width: "md:w-2/3 md:ml-auto",
+    statement: "Horizons where salt air dissolves the edge between sky, sea, and sand.",
+    prints: "Bahamas collection",
+    works: [
+      {
+        title: "Bahamas Horizon",
+        medium: "Mixed-media seascape",
+        image: bahamasArtwork,
+        aspect: "aspect-[4/5]",
+      },
+    ],
   },
   {
+    id: "canary-islands",
+    country: "Canary Islands",
     title: "Isla Fuego",
-    location: "Canary Islands",
-    medium: "Layered paper & acrylic",
-    image: canaryArtwork,
-    aspect: "aspect-[3/2]",
-    width: "md:w-5/6",
+    statement: "Volcanic coastlines, black sand, and the raw rhythm of the Atlantic.",
+    prints: "Canary Islands collection",
+    works: [
+      {
+        title: "Isla Fuego",
+        medium: "Layered paper & acrylic",
+        image: canaryArtwork,
+        aspect: "aspect-[4/5]",
+      },
+    ],
   },
 ];
 
@@ -67,10 +104,10 @@ function Index() {
           </a>
           <nav className="flex items-center gap-8">
             <a
-              href="#works"
+              href="#collections"
               className="hidden font-heading text-xs tracking-[0.15em] uppercase text-muted-foreground transition-colors hover:text-foreground sm:inline-block"
             >
-              Works
+              Collections
             </a>
             <a
               href="#about"
@@ -144,41 +181,72 @@ function Index() {
         </div>
       </section>
 
-      {/* Gallery wall */}
-      <section id="works" className="px-6 pb-40 md:px-12 lg:px-20">
+      {/* Collections */}
+      <section id="collections" className="px-6 pb-40 md:px-12 lg:px-20">
         <div className="mx-auto max-w-7xl">
           <div className="mb-24 border-b border-border pb-8">
             <p className="font-heading text-xs uppercase tracking-[0.3em] text-muted-foreground">
-              Selected works
+              Curated collections
             </p>
             <h2 className="mt-4 font-heading text-3xl font-light tracking-tight md:text-4xl">
-              Gallery
+              Prints by place
             </h2>
           </div>
 
           <div className="space-y-32 md:space-y-40">
-            {artworks.map((art) => (
-              <article key={art.title} className="group">
-                <div className={`overflow-hidden bg-muted ${art.aspect} ${art.width}`}>
-                  <img
-                    src={art.image}
-                    alt={`${art.title} — ${art.medium}`}
-                    width={1200}
-                    height={800}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-[1.02]"
-                  />
-                </div>
-                <div className="mt-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-                  <div>
-                    <h3 className="font-heading text-2xl font-light tracking-tight md:text-3xl">
-                      {art.title}
-                    </h3>
-                    <p className="mt-2 text-sm text-muted-foreground md:text-base">{art.medium}</p>
-                  </div>
-                  <p className="font-heading text-xs uppercase tracking-widest text-muted-foreground">
-                    {art.location}
+            {collections.map((collection, index) => (
+              <article
+                key={collection.id}
+                className="grid gap-12 border-b border-border pb-32 md:grid-cols-12 md:gap-16 md:pb-40"
+              >
+                {/* Collection text */}
+                <div className={`md:col-span-4 ${index % 2 === 1 ? "md:order-2" : ""}`}>
+                  <p className="font-heading text-xs uppercase tracking-[0.3em] text-muted-foreground">
+                    {collection.country}
                   </p>
+                  <h3 className="mt-4 font-heading text-3xl font-light tracking-tight md:text-4xl">
+                    {collection.title}
+                  </h3>
+                  <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
+                    {collection.statement}
+                  </p>
+                  <a
+                    href={PRINTIFY_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-8 inline-flex items-center gap-3 font-heading text-xs uppercase tracking-[0.2em] text-foreground transition-colors hover:text-primary"
+                  >
+                    <span className="h-px w-8 bg-current" />
+                    Shop {collection.prints}
+                  </a>
+                </div>
+
+                {/* Gallery grid */}
+                <div className={`md:col-span-8 ${index % 2 === 1 ? "md:order-1" : ""}`}>
+                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                    {collection.works.map((work) => (
+                      <figure key={work.title} className="group">
+                        <div className={`overflow-hidden bg-muted ${work.aspect}`}>
+                          <img
+                            src={work.image}
+                            alt={`${work.title} — ${work.medium}`}
+                            width={1024}
+                            height={1280}
+                            loading="lazy"
+                            className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-[1.02]"
+                          />
+                        </div>
+                        <figcaption className="mt-5">
+                          <h4 className="font-heading text-xl font-light tracking-tight md:text-2xl">
+                            {work.title}
+                          </h4>
+                          <p className="mt-1 text-sm text-muted-foreground md:text-base">
+                            {work.medium}
+                          </p>
+                        </figcaption>
+                      </figure>
+                    ))}
+                  </div>
                 </div>
               </article>
             ))}
@@ -204,7 +272,7 @@ function Index() {
             rel="noopener noreferrer"
             className="mt-10 inline-flex items-center justify-center border border-foreground bg-transparent px-12 py-4 font-heading text-xs uppercase tracking-[0.2em] text-foreground transition-all hover:bg-foreground hover:text-background"
           >
-            Shop prints on Printify
+            Shop all prints on Printify
           </a>
         </div>
       </section>
