@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 
 import heroImage from "@/assets/hero.jpg";
 import abbayeArt from "@/assets/Abbaye_Aux_Dames_Saintes_France.jpg.asset.json";
@@ -390,20 +390,86 @@ function Index() {
                 Instagram
               </a>
               <a
-                href="mailto:hello@gakcreations.com"
+                href="mailto:gakcreationsx@gmail.com"
                 className="font-heading text-xs uppercase tracking-[0.15em] text-muted-foreground transition-colors hover:text-foreground"
               >
-                Contact
+                Email
               </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Policies & business details */}
+        <div className="border-t border-border/60">
+          <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-3 md:px-12">
+            <nav aria-label="Customer policies">
+              <h2 className="font-heading text-xs uppercase tracking-[0.2em] text-foreground">
+                Customer information
+              </h2>
+              <ul className="mt-5 space-y-3">
+                <li>
+                  <Link
+                    to="/returns"
+                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    Return &amp; Refund Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/shipping"
+                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    Shipping Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/contact"
+                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    Contact Information
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+
+            <div>
+              <h2 className="font-heading text-xs uppercase tracking-[0.2em] text-foreground">
+                Contact
+              </h2>
+              <address className="mt-5 space-y-1 text-sm not-italic text-muted-foreground">
+                <p>GAK Creations</p>
+                <p>Fuerteventura, Canary Islands, Spain</p>
+                <p>
+                  <a
+                    href="mailto:gakcreationsx@gmail.com"
+                    className="transition-colors hover:text-foreground"
+                  >
+                    gakcreationsx@gmail.com
+                  </a>
+                </p>
+              </address>
+            </div>
+
+            <div>
+              <h2 className="font-heading text-xs uppercase tracking-[0.2em] text-foreground">
+                Orders
+              </h2>
+              <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
+                Prints are made to order and fulfilled through Printify. Production takes 2–5
+                business days before shipping.
+              </p>
             </div>
           </div>
         </div>
 
         <div className="border-t border-border/60 px-6 py-8 md:px-12">
           <p className="mx-auto max-w-7xl text-xs text-muted-foreground">
-            © {new Date().getFullYear()} GAK Creations
+            © {new Date().getFullYear()} GAK Creations · Fuerteventura, Canary Islands, Spain
           </p>
         </div>
+
       </footer>
 
     </main>
