@@ -33,7 +33,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const PRINTIFY_URL = "https://gakcreations.printify.me/";
+const PRINTIFY_URL = "https://gak-creations.printify.me/";
 
 const collections = [
   {
