@@ -11,23 +11,63 @@ import volcanicArt from "@/assets/Volcanic_Landscape_of_Fuerteventura.jpg.asset.
 import sketchbookAsset from "@/assets/sketchbook.jpg.asset.json";
 import logoAsset from "@/assets/gak-logo.png.asset.json";
 
+const SITE_URL = "https://gak-coastal-portal.lovable.app";
+const OG_IMAGE =
+  "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/50bc382e-12ee-4554-8780-eb7b944b5344";
+const PAGE_TITLE = "GAK Creations — Fine Art Prints of Coastal Architecture";
+const PAGE_DESCRIPTION =
+  "Fine art prints by GAK Creations: sketches, collages, and mixed-media works inspired by architecture, travel, and coastal life in France, Spain, the Bahamas, and the Canary Islands.";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "GAK Creations — Art prints from architecture, travel, and coastal life" },
-      {
-        name: "description",
-        content:
-          "GAK Creations is an artist-led studio where sketches, mixed-media, and photography become fine art prints inspired by France, Spain, the Bahamas, and the Canary Islands.",
-      },
-      { property: "og:title", content: "GAK Creations — Art prints from architecture, travel, and coastal life" },
-      {
-        property: "og:description",
-        content:
-          "GAK Creations is an artist-led studio where sketches, mixed-media, and photography become fine art prints inspired by France, Spain, the Bahamas, and the Canary Islands.",
-      },
+      { title: PAGE_TITLE },
+      { name: "description", content: PAGE_DESCRIPTION },
+      { property: "og:title", content: PAGE_TITLE },
+      { property: "og:description", content: PAGE_DESCRIPTION },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: SITE_URL + "/" },
+      { property: "og:image", content: OG_IMAGE },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: PAGE_TITLE },
+      { name: "twitter:description", content: PAGE_DESCRIPTION },
+      { name: "twitter:image", content: OG_IMAGE },
+    ],
+    links: [{ rel: "canonical", href: SITE_URL + "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": SITE_URL + "/#website",
+              url: SITE_URL + "/",
+              name: "GAK Creations",
+              description: PAGE_DESCRIPTION,
+              inLanguage: "en",
+            },
+            {
+              "@type": "VisualArtsBusiness",
+              "@id": SITE_URL + "/#studio",
+              name: "GAK Creations",
+              url: SITE_URL + "/",
+              image: OG_IMAGE,
+              description:
+                "Artist-led studio creating fine art prints from architectural sketches, collages, and mixed-media works.",
+              sameAs: ["https://gak-creations.printify.me/"],
+              areaServed: ["France", "Spain", "Bahamas", "Canary Islands"],
+            },
+            {
+              "@type": "ImageGallery",
+              "@id": SITE_URL + "/#gallery",
+              name: "Curated collections by place",
+              isPartOf: { "@id": SITE_URL + "/#website" },
+            },
+          ],
+        }),
+      },
     ],
   }),
   component: Index,

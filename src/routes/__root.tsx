@@ -77,18 +77,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "GAK Creations — Art prints from architecture, travel, and coastal life" },
-      { name: "description", content: "GAK Creations is an artist-led studio where sketches, mixed-media, and photography become fine art prints inspired by France, Spain, the Bahamas, and the Canary Islands." },
+      { title: "GAK Creations — Fine Art Prints of Coastal Architecture" },
       { name: "author", content: "GAK Creations" },
-      { property: "og:title", content: "GAK Creations — Art prints from architecture, travel, and coastal life" },
-      { property: "og:description", content: "GAK Creations is an artist-led studio where sketches, mixed-media, and photography become fine art prints inspired by France, Spain, the Bahamas, and the Canary Islands." },
+      { name: "robots", content: "index, follow" },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "GAK Creations" },
+      { property: "og:locale", content: "en_US" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@gakcreations" },
-      { name: "twitter:title", content: "GAK Creations — Art prints from architecture, travel, and coastal life" },
-      { name: "twitter:description", content: "GAK Creations is an artist-led studio where sketches, mixed-media, and photography become fine art prints inspired by France, Spain, the Bahamas, and the Canary Islands." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/50bc382e-12ee-4554-8780-eb7b944b5344" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/50bc382e-12ee-4554-8780-eb7b944b5344" },
     ],
     links: [
       {
