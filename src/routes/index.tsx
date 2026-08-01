@@ -18,6 +18,12 @@ const PAGE_TITLE = "GAK Creations — Fine Art Prints of Coastal Architecture";
 const PAGE_DESCRIPTION =
   "Fine art prints by GAK Creations: sketches, collages, and mixed-media works inspired by architecture, travel, and coastal life in France, Spain, the Bahamas, and the Canary Islands.";
 
+const LOVABLE_ASSET_ORIGIN = "https://gak-coastal-portal.lovable.app";
+
+function resolveAssetUrl(url: string) {
+  return url.startsWith("/__l5e/") ? `${LOVABLE_ASSET_ORIGIN}${url}` : url;
+}
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -86,13 +92,13 @@ const collections = [
       {
         title: "Abbaye aux Dames, Saintes",
         medium: "Ink drawing & watercolour wash",
-        image: abbayeArt.url,
+        image: resolveAssetUrl(abbayeArt.url),
         aspect: "aspect-[4/5]",
       },
       {
         title: "Dancing Jazz in the Pantheon",
         medium: "Chalk line drawing & collage",
-        image: pantheonArt.url,
+        image: resolveAssetUrl(pantheonArt.url),
         aspect: "aspect-[4/5]",
       },
     ],
@@ -107,13 +113,13 @@ const collections = [
       {
         title: "San Juan Bautista de Baños",
         medium: "Pen sketch & mixed-media collage",
-        image: banosArt.url,
+        image: resolveAssetUrl(banosArt.url),
         aspect: "aspect-[4/5]",
       },
       {
         title: "Guggenheim Museum, Bilbao",
         medium: "Graphite, wash & collage",
-        image: guggenheimArt.url,
+        image: resolveAssetUrl(guggenheimArt.url),
         aspect: "aspect-[4/5]",
       },
     ],
@@ -128,13 +134,13 @@ const collections = [
       {
         title: "Coastal Narratives",
         medium: "Etching & hand-tinted wash",
-        image: coastalArt.url,
+        image: resolveAssetUrl(coastalArt.url),
         aspect: "aspect-[4/5]",
       },
       {
         title: "The Boat That Dreams of Sea",
         medium: "Watercolour & mixed-media",
-        image: boatArt.url,
+        image: resolveAssetUrl(boatArt.url),
         aspect: "aspect-[4/5]",
       },
     ],
@@ -149,7 +155,7 @@ const collections = [
       {
         title: "Volcanic Landscape of Fuerteventura",
         medium: "Coloured pencil & watercolour",
-        image: volcanicArt.url,
+        image: resolveAssetUrl(volcanicArt.url),
         aspect: "aspect-[4/5]",
       },
     ],
@@ -347,7 +353,7 @@ function Index() {
           <figure className="order-2 md:order-1">
             <div className="overflow-hidden bg-muted">
               <img
-                src={sketchbookAsset.url}
+                src={resolveAssetUrl(sketchbookAsset.url)}
                 alt="Artist's sketchbook with ink drawings, fountain pens, and ink pots on a linen surface"
                 width={1920}
                 height={1200}
@@ -362,7 +368,7 @@ function Index() {
 
           <div className="order-1 flex flex-col items-start gap-8 md:order-2 md:pl-12">
             <img
-              src={logoAsset.url}
+              src={resolveAssetUrl(logoAsset.url)}
               alt="GAK Creations logo"
               width={280}
               height={155}
