@@ -163,9 +163,9 @@ function Index() {
       {/* Minimal gallery header */}
       <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/40 bg-background/90 backdrop-blur-sm">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-12">
-          <a href="/" className="font-heading text-sm font-light tracking-[0.2em] uppercase">
+          <Link to="/" className="font-heading text-sm font-light tracking-[0.2em] uppercase">
             GAK Creations
-          </a>
+          </Link>
           <nav className="flex items-center gap-8">
             <a
               href="#collections"
