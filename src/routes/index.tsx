@@ -86,7 +86,8 @@ const collections = [
     id: "france",
     country: "France",
     title: "Stone & Light",
-    statement: "Romanesque geometry, measured lines, and the music that lives inside old French architecture.",
+    statement:
+      "Romanesque geometry, measured lines, and the music that lives inside old French architecture.",
     prints: "France collection",
     works: [
       {
@@ -107,7 +108,8 @@ const collections = [
     id: "spain",
     country: "Spain",
     title: "Arches & Curves",
-    statement: "From Visigothic arches to Bilbao's titanium waves — Spain drawn between memory and invention.",
+    statement:
+      "From Visigothic arches to Bilbao's titanium waves — Spain drawn between memory and invention.",
     prints: "Spain collection",
     works: [
       {
@@ -161,7 +163,6 @@ const collections = [
     ],
   },
 ];
-
 
 function Index() {
   return (
@@ -242,11 +243,12 @@ function Index() {
             Philosophy
           </p>
           <p className="mt-10 font-heading text-2xl font-light leading-relaxed md:text-4xl lg:text-5xl">
-            My work blends architecture, travel, and coastal life into expressive sketches, collages, and mixed-media pieces.
+            My work blends architecture, travel, and coastal life into expressive sketches,
+            collages, and mixed-media pieces.
           </p>
           <p className="mx-auto mt-12 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            Each piece is a threshold — a moment where light, structure, and landscape meet. I draw from
-            the geometry of old towns, the rhythm of tides, and the sensory memory of place.
+            Each piece is a threshold — a moment where light, structure, and landscape meet. I draw
+            from the geometry of old towns, the rhythm of tides, and the sensory memory of place.
           </p>
         </div>
       </section>
@@ -334,7 +336,8 @@ function Index() {
             Bring the coast home
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            Archival-quality prints, made on demand and shipped directly to your door through Printify.
+            Archival-quality prints, made on demand and shipped directly to your door through
+            Printify.
           </p>
           <a
             href={PRINTIFY_URL}
@@ -475,9 +478,7 @@ function Index() {
             © {new Date().getFullYear()} GAK Creations · Fuerteventura, Canary Islands, Spain
           </p>
         </div>
-
       </footer>
-
     </main>
   );
 }
