@@ -40,3 +40,12 @@ cd <repository-name>
 npm i
 npm run dev
 ```
+
+## GitHub Pages deployment
+
+This repository deploys to GitHub Pages with the workflow at
+`.github/workflows/deploy-pages.yml`.
+
+One-time repository setting required:
+
+- In **Settings → Pages → Build and deployment**, set **Source** to **GitHub Actions**.

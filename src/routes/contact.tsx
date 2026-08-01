@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { PolicyPage, PolicySection } from "@/components/PolicyPage";
 
@@ -87,13 +87,13 @@ function ContactPage() {
       <PolicySection heading="Orders and fulfilment">
         <p>
           Prints are sold and shipped through the GAK Creations Printify store. Please see the{" "}
-          <a className="underline underline-offset-4" href="/shipping">
+          <Link className="underline underline-offset-4" to="/shipping">
             Shipping Policy
-          </a>{" "}
+          </Link>{" "}
           and{" "}
-          <a className="underline underline-offset-4" href="/returns">
+          <Link className="underline underline-offset-4" to="/returns">
             Return &amp; Refund Policy
-          </a>{" "}
+          </Link>{" "}
           for delivery estimates and replacement terms.
         </p>
       </PolicySection>
